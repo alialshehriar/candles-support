@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "9QHZ9VHX8P.com.candles.app",
+        "paths": [ "/c/*", "/c" ]
+      }
+    ]
+  }
+}

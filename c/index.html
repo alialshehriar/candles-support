@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>شمعة على كاندلز 🕯️</title>
+<meta property="og:title" content="شمعة على كاندلز 🕯️">
+<meta property="og:description" content="افتح الشمعة على الخريطة — افتحها تزيد عمرها وتشتعل أكثر.">
+<meta property="og:image" content="https://alialshehriar.github.io/candles-support/c/preview.png">
+<style>
+  :root{ --night:#170C26; --ember:#ED7D11; --flame:#FFB347; --cream:#F7ECD9; --purple:#6E2B8B; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:radial-gradient(ellipse at 50% 30%, #2A1843, var(--night) 75%);color:var(--cream);
+       font-family:-apple-system,'SF Arabic',system-ui,sans-serif;display:flex;flex-direction:column;
+       align-items:center;justify-content:center;min-height:100dvh;text-align:center;padding:28px;gap:22px}
+  .flame{width:96px;height:120px;position:relative;filter:drop-shadow(0 0 26px rgba(237,125,17,.85))}
+  .flame .f{position:absolute;left:50%;top:6px;width:40px;height:64px;transform:translateX(-50%);
+    background:radial-gradient(ellipse at 50% 82%,#FFFEF2 6%,#FFE48A 28%,#FFAE36 54%,#FF7714 76%,#E5430A 100%);
+    border-radius:50% 50% 48% 48% / 78% 78% 34% 34%;animation:dance 1.5s ease-in-out infinite}
+  .flame .b{position:absolute;left:50%;bottom:0;width:46px;height:58px;transform:translateX(-50%);border-radius:14px 14px 7px 7px;
+    background:linear-gradient(90deg,#9A3A0A,#FF9A42 50%,#8E3007)}
+  @keyframes dance{0%,100%{transform:translateX(-50%) scaleY(1) rotate(0)}50%{transform:translateX(-50%) scaleY(1.08) rotate(2deg)}}
+  h1{font-size:26px;font-weight:800}
+  p{font-size:16px;opacity:.78;max-width:340px;line-height:1.7}
+  .cta{margin-top:6px;display:flex;flex-direction:column;gap:12px;width:100%;max-width:320px}
+  a.btn{display:block;padding:16px;border-radius:16px;font-size:17px;font-weight:800;text-decoration:none;
+    background:linear-gradient(180deg,var(--flame),var(--ember));color:#fff;box-shadow:0 8px 24px rgba(237,125,17,.45)}
+  a.ghost{background:rgba(255,255,255,.08);color:var(--cream);font-weight:600;box-shadow:none}
+  .hint{font-size:12px;opacity:.5}
+</style>
+</head>
+<body>
+  <div class="flame"><div class="f"></div><div class="b"></div></div>
+  <h1>وصلتك شمعة 🕯️</h1>
+  <p>افتحها داخل تطبيق كاندلز — كل ما فتحها أحد، زاد عمرها واشتعلت أكثر، وارتفع مستوى صاحبها.</p>
+  <div class="cta">
+    <a class="btn" id="open" href="#">افتحها في كاندلز</a>
+    <a class="btn ghost" href="https://apps.apple.com/sa/app/id6778516257">حمّل كاندلز من آب ستور</a>
+  </div>
+  <div class="hint">السعودية كلها على الخريطة — شموع، طلعات، وأحياء قربك</div>
+<script>
+  // ?id=<uuid> (works for GitHub Pages without server routing)
+  var id = new URLSearchParams(location.search).get('id') || location.pathname.split('/').pop();
+  var deep = 'candles://candle/' + id;
+  document.getElementById('open').href = deep;
+  // installed users: try to jump straight into the app; if it fails, the buttons stay
+  if (id && id.length > 8) {
+    setTimeout(function(){ window.location = deep; }, 350);
+  }
+</script>
+</body>
+</html>
